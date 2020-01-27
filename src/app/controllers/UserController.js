@@ -1,7 +1,7 @@
 import User from '../models/User';
 
 class UserController {
-  async show(req, res) {}
+  // async show(req, res) {}
 
   async store(req, res) {
     try {
