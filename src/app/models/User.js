@@ -21,6 +21,10 @@ class User extends Model {
 
     return this;
   }
+
+  checkPassword(password) {
+    return bcrypt.compareSync(password, this.password);
+  }
 }
 
 export default User;

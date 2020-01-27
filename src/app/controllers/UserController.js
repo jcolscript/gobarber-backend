@@ -17,7 +17,9 @@ class UserController {
       }
 
       const { id, name, email, provider } = await User.create(userData);
-      return res.status(201).json({ id, name, email, provider });
+      return res
+        .status(201)
+        .json({ status: 201, data: { id, name, email, provider } });
     } catch (error) {
       return res
         .status(500)
