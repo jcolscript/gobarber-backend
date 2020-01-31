@@ -16,11 +16,14 @@ class UserController {
         });
       }
 
-      const { id, name, email, provider } = await User.create(userData);
+      const { id, name, email, cellphone, provider } = await User.create(
+        userData
+      );
       return res.status(201).json({
         id,
         name,
         email,
+        cellphone,
         provider,
       });
     } catch (error) {
@@ -48,9 +51,9 @@ class UserController {
         return res.status(401).json({ message: 'password does not match' });
       }
 
-      const { id, name, provider } = await user.update(req.body);
+      const { id, name, cellphone, provider } = await user.update(req.body);
 
-      return res.status(200).json({ id, name, email, provider });
+      return res.status(200).json({ id, name, email, cellphone, provider });
     } catch (error) {
       return res.status(500).json({ message: 'internal server error' });
     }

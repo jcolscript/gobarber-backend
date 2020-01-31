@@ -22,12 +22,13 @@ class SessionController {
         });
       }
 
-      const { id, name } = user;
+      const { id, name, cellphone } = user;
 
       return res.status(200).json({
         id,
         name,
         email,
+        cellphone,
         token: jwt.sign({ id }, '3ac58480903f4ea53b1a48f6d23f3e15', {
           expiresIn: '7d',
         }),
