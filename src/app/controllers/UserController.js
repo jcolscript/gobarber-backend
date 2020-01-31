@@ -26,6 +26,10 @@ class UserController {
         .json({ status: 500, message: 'internal server error' });
     }
   }
+
+  async update(req, res) {
+    return res.json({ ok: 'ok' });
+  }
 }
 
 export default new UserController();
