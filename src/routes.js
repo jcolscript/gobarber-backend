@@ -7,6 +7,7 @@ import multerConfig from './config/multer';
 // Controllers
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import FileController from './app/controllers/FileController';
 
 // Middlewares
 import auth from './app/middlewares/auth';
@@ -21,8 +22,6 @@ routes.post('/users', UserController.store);
 routes.put('/users', auth, UserController.update);
 
 // Avatars
-routes.post('/avatars', auth, upload.single('avatar'), (req, res) => {
-  return res.json({ message: 'ok' });
-});
+routes.post('/avatars', auth, upload.single('avatar'), FileController.store);
 
 export default routes;
