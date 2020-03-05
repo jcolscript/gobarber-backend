@@ -105,8 +105,8 @@ dist/
 .dynamodb/
 
 # Temporary folders
-tmp/
-temp/
+tmp/uploads/*
+!tmp/uploads/.gitkeep
 
 ### VisualStudioCode ###
 .vscode/*
