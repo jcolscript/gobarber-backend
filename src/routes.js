@@ -22,6 +22,6 @@ routes.post('/users', UserController.store);
 routes.put('/users', auth, UserController.update);
 
 // Avatars
-routes.post('/avatars', auth, upload.single('avatar'), FileController.store);
+routes.post('/avatars', auth, upload.single('file'), FileController.store);
 
 export default routes;
