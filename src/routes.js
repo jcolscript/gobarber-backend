@@ -8,6 +8,7 @@ import multerConfig from './config/multer';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
+import ProviderControle from './app/controllers/ProviderControle';
 
 // Middlewares
 import auth from './app/middlewares/auth';
@@ -21,7 +22,10 @@ routes.post('/sessions', SessionController.store);
 routes.post('/users', UserController.store);
 routes.put('/users', auth, UserController.update);
 
-// Avatars
-routes.post('/avatars', auth, upload.single('file'), FileController.store);
+// Providers
+routes.get('/providers', auth, ProviderControle.index);
+
+// Files
+routes.post('/files', auth, upload.single('file'), FileController.store);
 
 export default routes;
