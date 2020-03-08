@@ -55,7 +55,7 @@ class AppointmentController {
     if (provider_id === req.userId) {
       return res
         .status(401)
-        .json({ message: 'provider user can not create appointment' });
+        .json({ message: 'user can not create appointment with himself' });
     }
     /**
      * Check if provider_id is a provider
