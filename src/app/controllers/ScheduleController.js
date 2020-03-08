@@ -3,6 +3,7 @@ import { Op } from 'sequelize';
 
 import User from '../models/User';
 import Appointment from '../models/Appointments';
+import File from '../models/File';
 
 class ScheduleController {
   async index(req, res) {
@@ -24,6 +25,21 @@ class ScheduleController {
         date: { [Op.between]: [startOfDay(parsedDate), endOfDay(parsedDate)] },
       },
       order: ['date'],
+      attributes: ['id', 'date'],
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['id', 'name'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['id', 'path', 'url'],
+            },
+          ],
+        },
+      ],
     });
 
     return res.status(200).json(appointments);
