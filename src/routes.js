@@ -37,6 +37,7 @@ routes.get('/schedules', auth, ScheduleController.index);
 
 // Notifications
 routes.get('/notifications', auth, NotificationController.index);
+routes.put('/notifications/:id', auth, NotificationController.update);
 
 // Files
 routes.post('/files', auth, upload.single('file'), FileController.store);
