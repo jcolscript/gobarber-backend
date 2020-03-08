@@ -49,6 +49,15 @@ class AppointmentController {
     const { provider_id, date } = req.body;
 
     /**
+     * Check if provider_id is a user appointment create
+     */
+
+    if (provider_id === req.userId) {
+      return res
+        .status(401)
+        .json({ message: 'provider user can not create appointment' });
+    }
+    /**
      * Check if provider_id is a provider
      */
     const isProvider = await User.findOne({
