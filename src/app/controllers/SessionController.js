@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 
 import User from '../models/User';
 
+import authConfig from '../../config/auth';
+
 class SessionController {
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -41,8 +43,8 @@ class SessionController {
         name,
         email,
         cellphone,
-        token: jwt.sign({ id }, '3ac58480903f4ea53b1a48f6d23f3e15', {
-          expiresIn: '7d',
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn,
         }),
       });
     } catch (error) {
