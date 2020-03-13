@@ -14,13 +14,16 @@ import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
 
+// Validators
+import SessionStoreValidator from './app/validators/SessionStoreValidator';
+
 // Middlewares
 import auth from './app/middlewares/auth';
 
 const routes = new Router();
 const upload = multer(multerConfig);
 
-routes.post('/sessions', SessionController.store);
+routes.post('/sessions', SessionStoreValidator, SessionController.store);
 
 // User routes
 routes.post('/users', UserController.store);
