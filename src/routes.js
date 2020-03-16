@@ -35,7 +35,12 @@ routes.get('/providers/:providerId/available', auth, AvailableController.index);
 
 // Appointments
 routes.get('/appointments', auth, AppointmentController.index);
-routes.post('/appointments', auth, AppointmentController.store);
+routes.post(
+  '/appointments',
+  auth,
+  Validators.appointmentStore,
+  AppointmentController.store
+);
 routes.delete('/appointments/:id', auth, AppointmentController.delete);
 
 // Schedules
