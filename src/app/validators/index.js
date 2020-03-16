@@ -1,5 +1,5 @@
-import sessionStore from './SessionStoreValidator';
-import userStore from './UserStoreValidator';
+import sessionStore from './sessionStore';
+import userStore from './userStore';
 
 export default {
   sessionStore,
