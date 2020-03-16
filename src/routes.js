@@ -27,7 +27,7 @@ routes.post('/sessions', Validators.sessionStore, SessionController.store);
 
 // User routes
 routes.post('/users', Validators.userStore, UserController.store);
-routes.put('/users', auth, UserController.update);
+routes.put('/users', auth, Validators.userUpdate, UserController.update);
 
 // Providers
 routes.get('/providers', auth, ProviderControle.index);
